@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>Baby Cry Detection (TFLite + WebAssembly)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    #status {
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    #result {
+      font-size: 1.5em;
+      color: #d9534f;
+    }
+    #start-btn, #stop-btn {
+      padding: 10px 20px;
+      margin-right: 10px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Baby Cry Detection (Web + TFLite)</h1>
+  <div id="status">모델 로딩 중...</div>
+  <button id="start-btn">마이크 시작</button>
+  <button id="stop-btn" disabled>마이크 중지</button>
+  <div id="result">–</div>
+
+  <!-- 1) TensorFlow.js 핵심 라이브러리 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <!-- 2) TFLite WebAssembly 인터프리터 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite"></script>
+  <!-- 3) Meyda (브라우저 실시간 MFCC 추출 라이브러리) -->
+  <script src="https://unpkg.com/meyda/dist/web/meyda.min.js"></script>
+  <!-- 4) 실제 로직 -->
+  <script src="app.js"></script>
+</body>
+</html>
